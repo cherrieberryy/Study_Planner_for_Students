@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>studyplan</class>
+ <widget class="QMainWindow" name="studyplan">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>815</width>
+    <height>449</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>studyplan</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 222, 203);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="tochoices">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>0</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 25pt &quot;High Tower Text&quot;;
+color: #632d3b;
+background: transparent;
+border: none;
+padding: 0px;
+}
+QPushButton:hover{
+background: rgba(255, 255, 255, 0.2);
+}
+QPushButton:pressed{
+background: rgba(255, 255, 255, 0.1);
+}
+	
+</string>
+    </property>
+    <property name="text">
+     <string>⇽</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>26</y>
+      <width>791</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="studyplangrid">
+     <property name="topMargin">
+      <number>20</number>
+     </property>
+     <property name="bottomMargin">
+      <number>50</number>
+     </property>
+     <item row="0" column="0" colspan="4">
+      <widget class="QLabel" name="label_studyplan">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	font: 25pt &quot;Copperplate Gothic Light&quot;;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Study Plan</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="button_addstudy">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	color: rgb(99, 45, 59);
+	font: 13pt &quot;High Tower Text&quot;;
+	background: transparent;
+	border: 2px solid #632d3b;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+QPushButton:hover{
+	background: rgba(255, 255, 255, 0.2)
+}
+QPushButton:pressed{
+	background: rgba(255, 255, 255, 0.1)
+}</string>
+       </property>
+       <property name="text">
+        <string>ADD</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_studyplanname">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	font: 13pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4" alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="label_studyplanlist">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	font: 25pt &quot;Copperplate Gothic Light&quot;;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Study Plan List</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_studydescription">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	font: 13pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="3">
+      <widget class="QLineEdit" name="linedit_studyname">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+font: 13pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+	border-radius: 5px;
+	border: 1px solid #632d3b;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4" rowspan="2">
+      <widget class="QListWidget" name="listwidget_studylist">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListWidget{
+	font: 13pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+	border-radius: 5px;
+	border: 1px solid #632d3b;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="3">
+      <widget class="QTextEdit" name="textedit_studydescription">
+       <property name="styleSheet">
+        <string notr="true">QTextEdit{
+	font: 13pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+	border-radius: 5px;
+	border: 1px solid #632d3b;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2" colspan="2">
+      <widget class="QPushButton" name="button_studyedit">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	color: rgb(99, 45, 59);
+	font: 13pt &quot;High Tower Text&quot;;
+	background: transparent;
+	border: 2px solid #632d3b;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+QPushButton:hover{
+	background: rgba(255, 255, 255, 0.2)
+}
+QPushButton:pressed{
+	background: rgba(255, 255, 255, 0.1)
+}</string>
+       </property>
+       <property name="text">
+        <string>EDIT</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QPushButton" name="button_studyremove">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	color: rgb(99, 45, 59);
+	font: 13pt &quot;High Tower Text&quot;;
+	background: transparent;
+	border: 2px solid #632d3b;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+QPushButton:hover{
+	background: rgba(255, 255, 255, 0.2)
+}
+QPushButton:pressed{
+	background: rgba(255, 255, 255, 0.1)
+}</string>
+       </property>
+       <property name="text">
+        <string>REMOVE</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>815</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
