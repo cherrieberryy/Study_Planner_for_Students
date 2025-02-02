@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pomodoro</class>
+ <widget class="QMainWindow" name="pomodoro">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>815</width>
+    <height>449</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>pomodoro</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 222, 203);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>791</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="pomodorogrid">
+     <property name="topMargin">
+      <number>38</number>
+     </property>
+     <property name="bottomMargin">
+      <number>50</number>
+     </property>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_pomodoro">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	font: 25pt &quot;Copperplate Gothic Light&quot;;
+	text-align: center;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Pomodoro</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2" alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="label_time">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+font: 36pt &quot;High Tower Text&quot;;
+	color: rgb(99, 45, 59);
+}</string>
+       </property>
+       <property name="text">
+        <string>Time</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="button_startbreak">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	color: rgb(99, 45, 59);
+	font: 16pt &quot;High Tower Text&quot;;
+	background: transparent;
+	border: 2px solid #632d3b;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+QPushButton:hover{
+	background: rgba(255, 255, 255, 0.2)
+}
+QPushButton:pressed{
+	background: rgba(255, 255, 255, 0.1)
+}</string>
+       </property>
+       <property name="text">
+        <string>Start Break</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="button_taskstart">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+	color: rgb(99, 45, 59);
+	font: 16pt &quot;High Tower Text&quot;;
+	background: transparent;
+	border: 2px solid #632d3b;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+QPushButton:hover{
+	background: rgba(255, 255, 255, 0.2)
+}
+QPushButton:pressed{
+	background: rgba(255, 255, 255, 0.1)
+}</string>
+       </property>
+       <property name="text">
+        <string> Start Task</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="tochoice">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>-10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 25pt &quot;High Tower Text&quot;;
+color: #632d3b;
+background: transparent;
+border: none;
+padding: 0px;
+}
+QPushButton:hover{
+background: rgba(255, 255, 255, 0.2);
+}
+QPushButton:pressed{
+background: rgba(255, 255, 255, 0.1);
+}
+	
+</string>
+    </property>
+    <property name="text">
+     <string>⇽</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>815</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
