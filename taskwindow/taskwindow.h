@@ -2,6 +2,11 @@
 #define TASKWINDOW_H
 
 #include <QDialog>
+#include <QFile>
+#include <QDir>
+#include <QDebug>
+#include <QString>
+#include <QTextStream>
 
 namespace Ui {
 class taskwindow;
