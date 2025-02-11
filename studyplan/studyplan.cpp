@@ -11,6 +11,16 @@ studyplan::studyplan(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QFile file("StudyPlannerPlan.txt");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            ui->listwidget_studylist->addItem(line); // Add each line to the list widget
+        }
+        file.close();
+    }
+
     isstudyediting = false;
 
     connect(ui->button_addstudy, &QPushButton::clicked, this, &studyplan::addstudybutton);
@@ -35,6 +45,14 @@ void studyplan::addstudybutton()
     QString studyplantext = sName + " - " + sDescription;
 
     ui->listwidget_studylist->addItem(studyplantext);
+
+    QFile file("StudyPlannerPlan.txt");
+    if(file.open(QIODevice::Append | QIODevice::Text)){
+        QTextStream out(&file);
+        out << studyplantext << "\n";
+
+        file.close();
+    }
 
     ui->linedit_studyname->clear();
     ui->textedit_studydescription->clear();
@@ -71,6 +89,29 @@ void studyplan::editstudybutton()
         QString updatedplan = newName + " - " + newDescription;
         selectedItem->setText(updatedplan);
 
+        QFile file("StudyPlannerPlan.txt");
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QStringList lines;
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                lines << in.readLine(); // Read all lines from the file
+            }
+
+                    // Replace the old study plan with the updated one
+            int index = ui->listwidget_studylist->row(selectedItem);
+            if (index >= 0 && index < lines.size()) {
+                lines[index] = updatedplan;
+            }
+
+                    // Write the updated lines back to the file
+            file.resize(0); // Clear the file content
+            QTextStream out(&file);
+            for (const QString &line : lines) {
+                out << line << "\n";
+            }
+            file.close();
+        }
+
         // Clear input fields and reset button state
         ui->linedit_studyname->clear();
         ui->textedit_studydescription->clear();
@@ -87,6 +128,28 @@ void studyplan::removestudybutton()
     QListWidgetItem *selectedItem = ui->listwidget_studylist->currentItem();
     if(selectedItem){
         delete selectedItem;
+
+        QFile file("StudyPlannerPlan.txt");
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QStringList lines;
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                lines << in.readLine(); // Read all lines from the file
+            }
+
+                    // Remove the deleted study plan from the file
+            if (index >= 0 && index < lines.size()) {
+                lines.removeAt(index);
+            }
+
+                    // Write the updated lines back to the file
+            file.resize(0); // Clear the file content
+            QTextStream out(&file);
+            for (const QString &line : lines) {
+                out << line << "\n";
+            }
+            file.close();
+        }
     }
 
     updatestudylist();
