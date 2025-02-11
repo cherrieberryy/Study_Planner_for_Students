@@ -11,7 +11,15 @@ taskwindow::taskwindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    QFile file("StudyPlannerTask.txt");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            ui->tasklist->addItem(line); // Add each line to the list widget
+        }
+        file.close();
+    }
 
     istaskediting = false;
 
@@ -42,7 +50,13 @@ void taskwindow::addtaskbutton()
 
     ui->tasklist->addItem(tasktext);
 
+    QFile file("StudyPlannerTask.txt");
+    if(file.open(QIODevice::Append | QIODevice::Text)){
+        QTextStream out(&file);
+        out << tasktext << "\n";
 
+        file.close();
+    }
 
     ui->taskname->clear();
     ui->taskdescription->clear();
@@ -80,7 +94,28 @@ void taskwindow::edittaskbutton()
         QString updatedTask = newName + " - " + newDescription;
         selectedItem->setText(updatedTask);
 
+        QFile file("StudyPlannerTask.txt");
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QStringList lines;
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                lines << in.readLine(); // Read all lines from the file
+            }
 
+                    // Replace the old study plan with the updated one
+            int index = ui->tasklist->row(selectedItem);
+            if (index >= 0 && index < lines.size()) {
+                lines[index] = updatedTask;
+            }
+
+                    // Write the updated lines back to the file
+            file.resize(0); // Clear the file content
+            QTextStream out(&file);
+            for (const QString &line : lines) {
+                out << line << "\n";
+            }
+            file.close();
+        }
         // Clear input fields and reset button state
         ui->taskname->clear();
         ui->taskdescription->clear();
@@ -99,6 +134,27 @@ void taskwindow::removetaskbutton()
         int index = ui->tasklist->row(selectedItem);
         delete selectedItem;
 
+        QFile file("StudyPlannerTask.txt");
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QStringList lines;
+            QTextStream in(&file);
+            while (!in.atEnd()) {
+                lines << in.readLine(); // Read all lines from the file
+            }
+
+                    // Remove the deleted study plan from the file
+            if (index >= 0 && index < lines.size()) {
+                lines.removeAt(index);
+            }
+
+                    // Write the updated lines back to the file
+            file.resize(0); // Clear the file content
+            QTextStream out(&file);
+            for (const QString &line : lines) {
+                out << line << "\n";
+            }
+            file.close();
+        }
     }
 
     updatetasklist();
