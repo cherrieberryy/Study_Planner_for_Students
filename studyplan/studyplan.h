@@ -2,6 +2,11 @@
 #define STUDYPLAN_H
 
 #include <QMainWindow>
+#include <QFile>
+#include <QDir>
+#include <QDebug>
+#include <QString>
+#include <QTextStream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class studyplan; }
